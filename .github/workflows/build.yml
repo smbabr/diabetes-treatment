@@ -36,12 +36,3 @@ jobs:
           name: android-apk
           path: build/app/outputs/flutter-apk/app-debug.apk
           retention-days: 30
-
-      - name: Create Release
-        if: success()
-        uses: softprops/action-gh-release@v1
-        with:
-          files: build/app/outputs/flutter-apk/app-debug.apk
-          draft: true
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
